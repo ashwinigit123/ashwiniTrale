@@ -14307,10 +14307,19 @@ a.anchor-link {
     </div>
   </div>
   
-  <div class="h5 mb-1" style ="padding-top: 25px; padding-bottom: 25px;">Titanic Survival Predictions - Kaggale Tutorial</div>
+  <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h6 id="Titanic-Survival-Predictions---Kaggle-Tutorial">Titanic Survival Predictions - Kaggle Tutorial<a class="anchor-link" href="#Titanic-Survival-Predictions---Kaggle-Tutorial">&#182;</a></h6><p>The aim of this assignment was to learn how to use a classification model to Predict the survival of the passengers on Titanic. Firstly, I followed the steps given in the tutorial and obtained a score of 0.77511.To Increase the score I followed the given steps:
+a.Found out the attributes that had most Null/Blank values in the training and Test data set.
+b.Replaced the Blank values with some median or mean values.
+c.After all the Blank values were removed for all the attributes in Train and Test data set, I then converted the String/Test/Alphanumeric values to Numerical values as classifiers work best on numerical values.
+d.Removed the unwanted attributes like Name and Ticket as they were not very useful in predicting the any passengers Survival.
+e.Finally I added more features like Embarked and Cabin and Fare for classification as I believed they also give very useful information regarding the Passengers Survival</p>
+<p>Doing the above steps helped me in improving my score from 0.77511 to 0.77999.</p>
+<p>Below is the Jupiter Notebook code and it's step wise explaination.</p>
 
-  
-	<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>
+</div>1. Read the Train and Test dataset.<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
@@ -14599,7 +14608,7 @@ a.anchor-link {
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>2. Find the information about the total columns in Train and Test data set along with thier data types and count of the values.<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
@@ -14704,7 +14713,8 @@ memory usage: 36.0+ KB
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>3. Find the total null values for each columns/attributes in the Train and Test data set.
+we can observe that for Age, cabin,Embarked,Fare there are null values in the Train and Test dataset.<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
@@ -14801,7 +14811,7 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>4.Dropping Name column as we don't use it.<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
@@ -15090,7 +15100,7 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>5. Mapping String/Text values to numerical vlaues for column "Sex" for Train and Test dataset.<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
@@ -15367,7 +15377,7 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>6. Filling the NA values for Sex column with median value of age for similar sex. For example if for a row whose sex is female and the age is blank then fill the blank with the meadian age of females in the data set. Doing this for both Train and Test dataset.<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
@@ -15617,7 +15627,7 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>7. Filling the NA values for "Embarked" as "S".<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
@@ -15727,7 +15737,7 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>8. Mapping String/Text values to numerical vlaues for column "Embarked" for Train and Test dataset.<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
@@ -16017,7 +16027,7 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>9. Filling the NA values for "Fare" column with median value of Fare for similar Class. For example if for a row whose Class is 1 and the Fare is blank then fill the blank with the meadian Fare of Class 1s in the data set. Doing this for both Train and Test dataset.<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
@@ -16127,7 +16137,7 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>10.Counting the Cabin values.<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
@@ -16223,7 +16233,7 @@ Name: Cabin, Length: 76, dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>11.Using only first character of the Cabin attribute to make is unanimous. Doing this again on both Train and Test dataset.<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
@@ -16525,7 +16535,7 @@ Name: Cabin, Length: 76, dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>12. Mapping the String/Text Cabin values to equally spaced numerical values in Train and Test dataset<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
@@ -16681,7 +16691,7 @@ Name: Cabin, Length: 76, dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>13. Filling the NA values for "Cabin" column with median value of Fare for similar Class. For example if for a row whose Class is 1 and the Cabin is blank then fill the blank with the meadian Cabin value of Class '1's in the dataset. Doing this for both Train and Test data set.<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
@@ -16791,7 +16801,7 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>14. Combined the "SibSp" and "Parch" column to one column as a "FamilySize"<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
@@ -17092,7 +17102,7 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div>15.Dropping Ticket and SibSp and Parch column as I won't use them.<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
@@ -17404,7 +17414,7 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div>16. As a last step, I chose "Pclass", "Sex", "FamilySize","Embarked","Fare","Cabin" features for classification using random Forest classifier.<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
@@ -17539,21 +17549,8 @@ dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-     </div>
 </div>
-</div>
-</div>
-
-</div>
+<p> <b>Conclusion: </b>After following the above steps I could improve my score from 0.77511 to 0.77999. The idea that I used was to basically get rid of sparse data and convert all the vlaues into numerical format for both the datasets.</p>
   <hr class="d-print-none"/>
 </div></div>
     </div>
